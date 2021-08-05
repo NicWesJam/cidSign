@@ -1,10 +1,10 @@
 # addressDNS README #
 
-Quick overview of addressDNS project for HackFS 2021
+Quick overview of API for cidSign created as a submission for HackFS 2021
 
 ### Usage ###
 
-* If you are going to try this out live make sure to generate your own SECRET_KEY in settings.py file
+* If you are going to try this out make sure to generate your own SECRET_KEY in settings.py file
 
 ### Detailed overview ###
 
