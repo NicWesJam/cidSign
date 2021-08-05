@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WUTD - Who Uploaded That Document</title>
+    <style>
+      #opaque {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        display: block;
+        background-color: lightgrey;
+        filter: alpha(opacity=30);
+        opacity: 1;
+      }
+      * html #opaque {
+        position: absolute;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid white;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      #topDiv {
+        text-align: center;
+      }
+
+      #signaturesTable {
+        display: none;
+        border: 0px;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .flex-container {
+        display: flex;
+        text-align: center;
+      }
+
+      .flex-child {
+        flex: 1;
+        border: 2px solid;
+        display: none;
+      }
+
+      .flex-child:first-child {
+        margin-right: 20px;
+      }
+      #initializationDiv {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border: 1px solid black;
+        z-index: 1001;
+      }
+      .testing {
+        width: 500px;
+        height: 500px;
+        background: black;
+        text-align: center;
+      }
+      .testing h2 {
+        margin: 0px;
+      }
+      .tests {
+        text-align: left;
+        margin-left: 10px;
+      }
+      .tests p {
+        margin: 5px;
+      }
+      .outer {
+        width: 100%;
+        text-align: center;
+      }
+      .outer-topcorner {
+        width: 100%;
+        text-align: left;
+      }
+      .inner {
+        display: inline-block;
+      }
+      .topcorner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        z-index: 1002;
+        background-color: white;
+      }
+      .topcorner-text {
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topcorner">
+      <p class="topcorner-text">WUTD powered by:</p>
+      <div class="outer-topcorner">
+        <div class="inner">
+          <div id="logo1"></div>
+        </div>
+        <div class="inner">
+          <div id="logo2"></div>
+        </div>
+        <div class="inner">
+          <div id="logo3"></div>
+        </div>
+      </div>
+    </div>
+    <div id="initializationDiv">
+      <div class="testing">
+        <br />
+        <h2>WUTD - Who Uploaded That Document</h2>
+        <h3>Initializing page...</h3>
+        <div class="tests">
+          <p>html components: <span id="htmlComponentTest">underway</span></p>
+          <p>web3 loaded: <span id="web3LoadedTest">underway</span></p>
+          <p>
+            Web3 provider inialization:
+            <span id="providerInitializedTest">underway</span>
+          </p>
+          <p>
+            Web3.Storage inialization:
+            <span id="web3StorageInitializedTest">underway</span>
+          </p>
+          <p>
+            get account data:
+            <span id="getAccountTest">underway</span>
+          </p>
+          <p>
+            configure web3 to connect to smart contract:
+            <span id="smartContractTest">underway</span>
+          </p>
+          <p>
+            setup html event listeners:
+            <span id="htmlListenerTest">underway</span>
+          </p>
+          <p>
+            setup eth event listeners:
+            <span id="ethListenerTest">underway</span>
+          </p>
+          <p>
+            update inital display: <span id="initialDisplayTest">underway</span>
+          </p>
+        </div>
+        <br />
+        <button id="continueButton">Continue</button>
+      </div>
+    </div>
+    <div id="opaque"></div>
+
+    <div id="topDiv">
+      <h1>WUTD - who uploaded that document</h1>
+      <p>
+        Select a file to upload to Web3.Storage and verify signatures or sign
+      </p>
+      <input type="file" id="fileInput" />
+      <p>CID: <span id="cid">No file chosen</span></p>
+      <div class="outer">
+        <div class="inner">
+          <button id="refreshCidStatusButton">Refresh CID Status</button>
+        </div>
+        <div class="inner">
+          <p>CID Status: <span id="cidStatus">N/A</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-container">
+      <div class="flex-child" id="leftDiv">
+        <h2>Signatures</h2>
+        <button id="refreshSignaturesButton">refresh Signatures</button>
+        <p>Number of Signatures: <span id="numSignatures"></span></p>
+        <table id="signaturesTable">
+          <!-- here goes our data! -->
+        </table>
+      </div>
+      <div class="flex-child" id="rightDiv">
+        <h2>Sign Document</h2>
+        <button id="signCidButton">Click here to sign document</button>
+        <p>Account: <span id="showAccount"></span></p>
+        <p>Network: <span id="showNetwork"></span></p>
+
+        <p>
+          Transaction Status:
+          <span id="transactionStatus">No transaction underway</span>
+        </p>
+        <p>
+          Number of Confirmation Blocks:
+          <span id="numConfirmationBlocks">No transaction underway</span>
+        </p>
+        <p>
+          Transaction Etherscan Address:
+          <span id="etherscanAddress">No transaction underway</span>
+        </p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
