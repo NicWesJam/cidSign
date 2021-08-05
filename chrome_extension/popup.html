@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>address@DNS</title>
+        <script src="popup.js"></script>
+        
+    </head>
+    <body style="background-color:lightgrey;width:600px;height:180px;">
+        <label for="blockchain">Blockchain address to search for:</label>
+
+        <select id="blockchain">
+            <option value="btc">BTC</option>
+            <option value="eth" selected>ETH</option>
+            <option value="ipfs">IPFS</option>
+            <option value="filecoin">Filecoin</option>
+        </select>
+        <div id="status">
+            <button id="getResults">Refresh Addresses Check</button>
+            <h4 id="results"></h4>
+            <table id="placeholderTable"></table>
+        </div>
+    </body>
+</html>
+
+
