@@ -1,10 +1,7 @@
-API_URL = 'http://127.0.0.1:8000/linked_address/'
+API_URL = 'https://thinkingzoo.com:441/linked_address/'
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    //var resultsButton = document.getElementById("getResults");
-    //resultsButton.onclick = getResults();
     getResults();
-    //resultsButton.onclick = window.location.reload();
 });
 
 window.onload=function(){
@@ -32,11 +29,8 @@ function getResults(){
             } else {
                 let blockchainSelect = document.getElementById("blockchain")
                 let blockchainValue = blockchainSelect.options[blockchainSelect.selectedIndex].value;
-                //let blockchainValue = blockchainSelect.selectedIndex;
-
                 checkResults(response, blockchainValue);
             }
-            
         });
     });
 }
@@ -62,16 +56,10 @@ async function checkResults(results, address_type) {
                     // It is undefined
                     resultsArray.push({address: results[i], match:'no match'})
                 }
-                //resultsElement.innerText=JSON.stringify(data['detail']);
             })
         }
-    //resultsArray.push('test');
-    //resultsElement.innerText = JSON.stringify(resultsArray);
-    buildTable(resultsArray);
-
-                
-    //resultsElement.innerText = results;
     
+    buildTable(resultsArray);
 }
 
 function buildTable(data){
@@ -84,14 +72,6 @@ function buildTable(data){
         let cell2 = row.insertCell();
         cell2.innerHTML = data[i]['match'];
     }
-    //document.getElementById("results").innerText = "";
+   
     document.getElementById("placeholderTable").replaceWith(table);
 }
-
-
-/*
-fetch('http://127.0.0.1:8000/domain/thinkingzoo.com/')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-*/
